@@ -1,4 +1,4 @@
-# mortstack
+# mort-stack
 
 Agent skills I've refined over months of shipping with Claude Code, with the
 project-specific parts removed so anyone can use them. Each one is a plain
