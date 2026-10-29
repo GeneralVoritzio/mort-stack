@@ -1,0 +1,20 @@
+{
+  "name": "mortstack",
+  "version": "1.0.0",
+  "description": "Agent skills I've refined over months of shipping with Claude Code, with the project-specific parts removed so anyone can use them. Each one is a plain [Agent Skill](https://agentskills.io) (`skills/<name>/SKILL.md`) and works in Claude Code, Codex, Pi, and any other harness that reads skills.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "private": "true",
+  "type": "module",
+  "devDependencies": {
+    "playwright": "^1.64.1"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "viewports": { "desktop": [1400, 900], "tablet": [810, 900], "phone": [390, 844] },
+  "defaults": { "box": 2, "typography": 2, "grid": 8, "sectionSizes": 30, "docHeight": 150 },
+  "checks": [
+    { "id": "D01", "viewport": "desktop", "section": "global", "metric": "sectionOrder",
+      "expected": ["nav", "hero", "features", "pricing", "footer"], "tolerance": 0 },
+    { "id": "D02", "viewport": "desktop", "section": "global", "metric": "docHeight",
+      "expected": 5200, "tolerance": 150 },
+    { "id": "D03", "viewport": "desktop", "section": "global", "metric": "sectionSizes",
+      "expected": { "nav": { "w": 1400, "h": 60 }, "hero": { "w": 1400, "h": 791 } },
+      "tolerance": { "w": 8, "h": 30 } },
+    { "id": "D04", "viewport": "desktop", "section": "nav", "selector": "[data-section=nav] > div",
+      "metric": "box", "item": "inner bar, page frame",
+      "expected": { "x": 160, "w": 1080, "h": 60 } },
+    { "id": "D05", "viewport": "desktop", "section": "global", "selector": "body",
+      "metric": "style", "expected": { "backgroundColor": "rgb(246, 246, 243)" } },
+    { "id": "D06", "viewport": "desktop", "section": "hero", "selector": "[data-section=hero] h1",
+      "metric": "typography",
+      "expected": { "fontSize": 64, "lineHeight": 70.8, "fontWeight": 400, "letterSpacing": -0.64 } },
+    { "id": "D07", "viewport": "desktop", "section": "hero", "selector": "[data-section=hero] .tiles",
+      "metric": "grid", "expected": { "columns": 3, "childW": 357, "colGap": 4 } },
+    { "id": "T01", "viewport": "tablet", "section": "nav", "selector": "[data-section=nav] button[aria-label=Menu]",
+      "metric": "visible", "expected": true, "tolerance": 0 },
+    { "id": "D08", "viewport": "desktop", "section": "nav", "metric": "manual",
+      "item": "nav pill slides under the hovered link in ~200ms with an ease-out curve" },
+    { "id": "D09", "viewport": "desktop", "section": "hero", "metric": "skip",
+      "reason": "superseded by D06 after the spec correction of 2026-08-17 (64px, not 60px)" }
+  ]
+}
