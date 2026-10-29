@@ -10,6 +10,7 @@ Claude Code, Codex, Pi, and any other harness that reads skills.
 | Skill | Say | What it does |
 |---|---|---|
 | `replicate-ui` | "replicate this UI" | Rebuilds any page or app 1:1. It measures the original once into a spec and a check list, builds against them, and passes only when every check is green. |
+| `email-signature-demo` | "make an email signature demo from this URL" | Records a short product interaction, makes a compact GIF and static fallback, and builds a linked HTML email signature. |
 | `run-round` | "run a round" | Runs multi-agent work as one deterministic workflow: plan, lanes, reviewer, gate (including your CI, run locally), then a scribe. Agents return only small typed reports, so your session's context stays clean. |
 | `handover` | "write a handover" | Writes a cold-start document that lets a fresh session pick up exactly where this one stopped. It splits open work into what an agent can do and what only you can do. |
 | `cite-precedent` | (automatic) | For any non-obvious decision, finds the mature open-source project that already solved it, follows that project, and logs the decision with its citation. |
@@ -55,6 +56,25 @@ The rebuild uses no GitHub code or class names. Icons are
 uses [github-markdown-css](https://github.com/sindresorhus/github-markdown-css)
 (MIT). Source: [docs/example/rebuild](docs/example/rebuild).
 
+## Product demo → email signature
+
+Give [`email-signature-demo`](skills/email-signature-demo/SKILL.md) your product URL:
+
+```text
+/email-signature-demo https://your-product.com
+```
+
+It inspects the product, picks a short flow, **records the actual interaction**,
+then creates a compact GIF, a static thumbnail, and copy-paste HTML with a link
+to your demo. Supply a demo session for a private app. It can also use an existing
+recording. Public homepage previews are labeled as such.
+
+The bundled Playwright recorder captures the actual product flow as video; existing
+recordings also work. You get the assets and signature files locally;
+publishing the images and installing the signature are separate steps. The skill
+includes hosting and installation guidance. Test the received signature in your
+mail client: animation and external image loading depend on the recipient's setup.
+
 ## Install
 
 ```bash
@@ -70,6 +90,10 @@ cp -R mort-stack/skills/* ~/.codex/skills/    # Codex
 ```
 
 ## Requirements
+
+- `email-signature-demo`: Node 20+, Python 3, FFmpeg, and Playwright with Chromium.
+  Recorder setup: `npm install --prefix skills/email-signature-demo/scripts`, then
+  `cd skills/email-signature-demo/scripts && npx playwright install chromium`.
 
 - `replicate-ui`: Node 20+ and Playwright for `capture.mjs` and `measure.mjs`.
   Install it in the project you run them from:
