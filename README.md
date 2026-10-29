@@ -21,7 +21,39 @@ Some skills call others. Install the ones they need too:
 
 ## replicate-ui, by example
 
-<!-- TODO: meta demo, original vs rebuild side by side, both at 1400px. -->
+The page you're reading now, rebuilt by `replicate-ui`. On the left is this
+repo's GitHub page as of the first commit. On the right is a static HTML
+rebuild of it. Both are captured at 1400px.
+
+| GitHub | Rebuild |
+|---|---|
+| <img src="docs/example/original.png" width="420"> | <img src="docs/example/rebuild.png" width="420"> |
+
+How it went:
+
+1. `capture.mjs` took one pass over the live page and saved the shots, section
+   boxes and tokens. Two short probes then measured about 40 elements. That
+   was the only time the original was read.
+2. The [check list](docs/example/rebuild/checks.json) has 39 measured facts:
+   section order, document height, the header, tabs, title bar, file table,
+   README box, Markdown type and the sidebar rhythm. One more check is manual.
+3. Five build-and-measure loops took the rebuild from 15 checks passing to
+   21, 33, 36, then 39. Each loop read a few lines of `measure.mjs` output,
+   not a screenshot.
+
+Two rules in the skill came from this run:
+
+- **Measure the font that actually rendered.** GitHub's CSS declares
+  "Mona Sans VF", but signed-out visitors get the system font. Copying the
+  declared font made every line of text 3% too wide.
+- **A measurement must name its frame.** One check was written against a tab's
+  icon instead of the tab's box. The runner flagged it, and the fix went into
+  the check, not the build.
+
+The rebuild uses no GitHub code or class names. Icons are
+[Primer Octicons](https://github.com/primer/octicons) (MIT) and the README body
+uses [github-markdown-css](https://github.com/sindresorhus/github-markdown-css)
+(MIT). Source: [docs/example/rebuild](docs/example/rebuild).
 
 ## Install
 

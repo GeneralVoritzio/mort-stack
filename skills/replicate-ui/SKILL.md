@@ -76,6 +76,11 @@ then writes the shots, `measure-<W>.json` and `tokens.txt`.
 - **Read semantic tokens from the stylesheet rules.** For example,
   `:root, .light` versus `.dark`. Only fall back to sampling computed colours
   when no tokens exist.
+- **Measure the font that actually rendered, not the one the CSS declares.**
+  Sites often declare a brand font that doesn't load for every visitor, so the
+  page falls back to the system font. Check `document.fonts` for loaded faces,
+  and compare a sample string's rendered width on both sides before you
+  measure any text.
 - **Label every font classification with the family name.** A regex for "serif"
   also matches "sans-serif".
 

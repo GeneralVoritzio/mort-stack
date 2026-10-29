@@ -1,0 +1,71 @@
+<div class="markdown-heading"><h1 class="heading-element">mortstack</h1><a id="user-content-mortstack" class="anchor" aria-label="Permalink: mortstack" href="#mortstack"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Agent skills I've refined over months of shipping with Claude Code, with the
+project-specific parts removed so anyone can use them. Each one is a plain
+<a href="https://agentskills.io" rel="nofollow">Agent Skill</a> (<code>skills/&lt;name&gt;/SKILL.md</code>) and works in
+Claude Code, Codex, Pi, and any other harness that reads skills.</p>
+<div class="markdown-heading"><h2 class="heading-element">Skills</h2><a id="user-content-skills" class="anchor" aria-label="Permalink: Skills" href="#skills"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>Say</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>replicate-ui</code></td>
+<td>"replicate this UI"</td>
+<td>Rebuilds any page or app 1:1. It measures the original once into a spec and a check list, builds against them, and passes only when every check is green.</td>
+</tr>
+<tr>
+<td><code>run-round</code></td>
+<td>"run a round"</td>
+<td>Runs multi-agent work as one deterministic workflow: plan, lanes, reviewer, gate (including your CI, run locally), then a scribe. Agents return only small typed reports, so your session's context stays clean.</td>
+</tr>
+<tr>
+<td><code>handover</code></td>
+<td>"write a handover"</td>
+<td>Writes a cold-start document that lets a fresh session pick up exactly where this one stopped. It splits open work into what an agent can do and what only you can do.</td>
+</tr>
+<tr>
+<td><code>cite-precedent</code></td>
+<td>(automatic)</td>
+<td>For any non-obvious decision, finds the mature open-source project that already solved it, follows that project, and logs the decision with its citation.</td>
+</tr>
+</tbody>
+</table>
+<p>Some skills call others. Install the ones they need too:</p>
+<ul>
+<li>
+<code>run-round</code> uses <code>cite-precedent</code> when a lane has to make a decision.</li>
+<li>
+<code>replicate-ui</code> can run its build as a <code>run-round</code> when the page is large.</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">replicate-ui, by example</h2><a id="user-content-replicate-ui-by-example" class="anchor" aria-label="Permalink: replicate-ui, by example" href="#replicate-ui-by-example"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+
+<div class="markdown-heading"><h2 class="heading-element">Install</h2><a id="user-content-install" class="anchor" aria-label="Permalink: Install" href="#install"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>npx skills add GeneralVoritzio/mortstack</pre></div>
+<p>Or copy them by hand:</p>
+<div class="highlight highlight-source-shell"><pre>git clone https://github.com/GeneralVoritzio/mortstack
+cp -R mortstack/skills/<span class="pl-k">*</span> <span class="pl-k">~</span>/.claude/skills/   <span class="pl-c"><span class="pl-c">#</span> Claude Code</span>
+cp -R mortstack/skills/<span class="pl-k">*</span> <span class="pl-k">~</span>/.codex/skills/    <span class="pl-c"><span class="pl-c">#</span> Codex</span></pre></div>
+<div class="markdown-heading"><h2 class="heading-element">Requirements</h2><a id="user-content-requirements" class="anchor" aria-label="Permalink: Requirements" href="#requirements"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<code>replicate-ui</code>: Node 20+ and Playwright (<code>npx playwright install chromium</code>) for
+<code>capture.mjs</code> and <code>measure.mjs</code>.</li>
+<li>
+<code>run-round</code>: a harness with subagents. Claude Code's Workflow tool is the best
+fit, and any subagent tool will work.</li>
+<li>
+<code>run-round</code>'s local CI step: <code>act</code> or Docker if you want to run GitHub Actions
+jobs locally. Without them it runs each job's steps directly.</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Make them yours</h2><a id="user-content-make-them-yours" class="anchor" aria-label="Permalink: Make them yours" href="#make-them-yours"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>These are starting points, so edit them. Keep personal settings in your
+<code>CLAUDE.md</code> or <code>AGENTS.md</code>, not in the skills, so you can update the skills
+without losing them. That covers things like which model each role runs on,
+where reference captures are saved, and your gate command.</p>
+<div class="markdown-heading"><h2 class="heading-element">License</h2><a id="user-content-license" class="anchor" aria-label="Permalink: License" href="#license"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a href="LICENSE">MIT</a></p>

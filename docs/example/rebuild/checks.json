@@ -1,0 +1,441 @@
+{
+  "viewports": {
+    "desktop": [
+      1400,
+      900
+    ]
+  },
+  "defaults": {
+    "box": 2,
+    "typography": 1,
+    "grid": 8,
+    "sectionSizes": 8,
+    "docHeight": 40
+  },
+  "checks": [
+    {
+      "id": "G01",
+      "section": "global",
+      "metric": "sectionOrder",
+      "expected": [
+        "header",
+        "repo-header",
+        "title",
+        "branch-bar",
+        "files",
+        "readme",
+        "sidebar",
+        "footer"
+      ],
+      "tolerance": 0
+    },
+    {
+      "id": "G02",
+      "section": "global",
+      "metric": "docHeight",
+      "expected": 2434
+    },
+    {
+      "id": "G03",
+      "section": "global",
+      "metric": "style",
+      "expected": {
+        "backgroundColor": "rgb(255, 255, 255)",
+        "color": "rgb(31, 35, 40)"
+      }
+    },
+    {
+      "id": "H01",
+      "section": "header",
+      "metric": "box",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "w": 1400,
+        "h": 68
+      }
+    },
+    {
+      "id": "H02",
+      "section": "header",
+      "metric": "style",
+      "expected": {
+        "backgroundColor": "rgb(0, 0, 0)"
+      }
+    },
+    {
+      "id": "H03",
+      "section": "header",
+      "selector": ".signup",
+      "metric": "box",
+      "expected": {
+        "x": 1267,
+        "y": 18,
+        "w": 77,
+        "h": 32
+      }
+    },
+    {
+      "id": "H04",
+      "section": "header",
+      "selector": ".signin",
+      "metric": "box",
+      "expected": {
+        "x": 1186,
+        "w": 72,
+        "h": 32
+      }
+    },
+    {
+      "id": "H05",
+      "section": "header",
+      "selector": ".gsearch",
+      "metric": "box",
+      "expected": {
+        "x": 978,
+        "y": 16,
+        "w": 200,
+        "h": 36
+      }
+    },
+    {
+      "id": "H06",
+      "section": "header",
+      "selector": ".gnav a:last-child",
+      "metric": "box",
+      "expected": {
+        "x": 492,
+        "y": 20,
+        "h": 28
+      }
+    },
+    {
+      "id": "R01",
+      "section": "repo-header",
+      "selector": ".crumbs a",
+      "metric": "box",
+      "expected": {
+        "x": 16,
+        "y": 84,
+        "h": 32
+      }
+    },
+    {
+      "id": "R02",
+      "section": "repo-header",
+      "selector": ".tab[aria-current]",
+      "metric": "box",
+      "expected": {
+        "x": 16,
+        "y": 128,
+        "w": 75,
+        "h": 32
+      }
+    },
+    {
+      "id": "R03",
+      "section": "repo-header",
+      "metric": "box",
+      "expected": {
+        "y": 68,
+        "h": 101
+      }
+    },
+    {
+      "id": "T01",
+      "section": "title",
+      "metric": "box",
+      "expected": {
+        "x": 92,
+        "y": 184,
+        "h": 36
+      }
+    },
+    {
+      "id": "T02",
+      "section": "title",
+      "selector": ".repo-name",
+      "metric": "typography",
+      "expected": {
+        "fontSize": 20,
+        "lineHeight": 30,
+        "fontWeight": 600
+      }
+    },
+    {
+      "id": "T03",
+      "section": "title",
+      "selector": ".label",
+      "metric": "box",
+      "expected": {
+        "x": 226,
+        "y": 192,
+        "w": 50,
+        "h": 20
+      }
+    },
+    {
+      "id": "B01",
+      "section": "branch-bar",
+      "selector": ".btn32",
+      "metric": "box",
+      "expected": {
+        "x": 92,
+        "y": 261,
+        "w": 106,
+        "h": 32
+      }
+    },
+    {
+      "id": "B02",
+      "section": "branch-bar",
+      "selector": ".code-btn",
+      "metric": "box",
+      "expected": {
+        "x": 887,
+        "y": 261,
+        "w": 109,
+        "h": 32
+      }
+    },
+    {
+      "id": "B03",
+      "section": "branch-bar",
+      "selector": ".code-btn",
+      "metric": "style",
+      "expected": {
+        "backgroundColor": "rgb(31, 136, 61)",
+        "borderTopLeftRadius": 6
+      }
+    },
+    {
+      "id": "F01",
+      "section": "files",
+      "metric": "box",
+      "expected": {
+        "x": 92,
+        "y": 309,
+        "w": 904,
+        "h": 301
+      }
+    },
+    {
+      "id": "F02",
+      "section": "files",
+      "selector": ".commit",
+      "metric": "box",
+      "expected": {
+        "y": 309,
+        "h": 54
+      }
+    },
+    {
+      "id": "F03",
+      "section": "files",
+      "selector": ".row",
+      "metric": "box",
+      "expected": {
+        "x": 93,
+        "y": 363,
+        "w": 902,
+        "h": 40
+      }
+    },
+    {
+      "id": "F04",
+      "section": "files",
+      "selector": ".hist",
+      "metric": "box",
+      "expected": {
+        "x": 891,
+        "y": 322,
+        "w": 92,
+        "h": 28
+      }
+    },
+    {
+      "id": "M01",
+      "section": "readme",
+      "metric": "box",
+      "expected": {
+        "x": 92,
+        "y": 625,
+        "w": 904,
+        "h": 1615
+      }
+    },
+    {
+      "id": "M02",
+      "section": "readme",
+      "selector": ".rtabs",
+      "metric": "box",
+      "expected": {
+        "y": 626,
+        "h": 48
+      }
+    },
+    {
+      "id": "M03",
+      "section": "readme",
+      "selector": ".markdown-body h1",
+      "metric": "box",
+      "expected": {
+        "x": 125,
+        "y": 706,
+        "w": 838,
+        "h": 51
+      }
+    },
+    {
+      "id": "M04",
+      "section": "readme",
+      "selector": ".markdown-body h1",
+      "metric": "typography",
+      "expected": {
+        "fontSize": 32,
+        "lineHeight": 40,
+        "fontWeight": 600
+      }
+    },
+    {
+      "id": "M05",
+      "section": "readme",
+      "selector": ".markdown-body h2",
+      "metric": "box",
+      "expected": {
+        "y": 869,
+        "h": 38
+      }
+    },
+    {
+      "id": "M06",
+      "section": "readme",
+      "selector": ".markdown-body table",
+      "metric": "box",
+      "expected": {
+        "y": 923,
+        "w": 838,
+        "h": 354
+      }
+    },
+    {
+      "id": "M07",
+      "section": "readme",
+      "selector": ".markdown-body code",
+      "metric": "box",
+      "expected": {
+        "x": 512,
+        "y": 799,
+        "w": 191,
+        "h": 21
+      }
+    },
+    {
+      "id": "M08",
+      "section": "readme",
+      "selector": ".markdown-body .highlight",
+      "metric": "box",
+      "expected": {
+        "y": 1525,
+        "h": 52
+      }
+    },
+    {
+      "id": "S01",
+      "section": "sidebar",
+      "selector": ".side-block:nth-child(2) h2",
+      "metric": "box",
+      "expected": {
+        "x": 1036,
+        "y": 633
+      }
+    },
+    {
+      "id": "S02",
+      "section": "sidebar",
+      "selector": ".side-block:nth-child(3) h2",
+      "metric": "box",
+      "expected": {
+        "x": 1036,
+        "y": 720
+      }
+    },
+    {
+      "id": "S03",
+      "section": "sidebar",
+      "selector": ".side-block:nth-child(4) h2",
+      "metric": "box",
+      "expected": {
+        "x": 1036,
+        "y": 869
+      }
+    },
+    {
+      "id": "S04",
+      "section": "sidebar",
+      "selector": ".lang b",
+      "metric": "box",
+      "expected": {
+        "x": 1052,
+        "y": 924
+      }
+    },
+    {
+      "id": "S05",
+      "section": "sidebar",
+      "selector": ".facts li:first-child",
+      "metric": "box",
+      "expected": {
+        "y": 405
+      }
+    },
+    {
+      "id": "Z01",
+      "section": "footer",
+      "metric": "box",
+      "expected": {
+        "y": 2320,
+        "h": 114
+      }
+    },
+    {
+      "id": "B04",
+      "section": "branch-bar",
+      "selector": ".goto",
+      "metric": "box",
+      "expected": {
+        "x": 675,
+        "w": 204,
+        "h": 32
+      },
+      "tolerance": 4
+    },
+    {
+      "id": "F05",
+      "section": "files",
+      "selector": ".row .msg",
+      "metric": "box",
+      "expected": {
+        "x": 470
+      },
+      "tolerance": 6
+    },
+    {
+      "id": "R04",
+      "section": "repo-header",
+      "selector": ".tab:last-child",
+      "metric": "box",
+      "expected": {
+        "x": 711
+      },
+      "tolerance": 6,
+      "item": "tab box (not its icon), page frame"
+    },
+    {
+      "id": "X01",
+      "section": "global",
+      "metric": "manual",
+      "item": "side-by-side 2x renders read as the same page"
+    }
+  ]
+}
