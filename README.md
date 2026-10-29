@@ -58,15 +58,15 @@ uses [github-markdown-css](https://github.com/sindresorhus/github-markdown-css)
 ## Install
 
 ```bash
-npx skills add GeneralVoritzio/mortstack
+npx skills add GeneralVoritzio/mort-stack
 ```
 
 Or copy them by hand:
 
 ```bash
-git clone https://github.com/GeneralVoritzio/mortstack
-cp -R mortstack/skills/* ~/.claude/skills/   # Claude Code
-cp -R mortstack/skills/* ~/.codex/skills/    # Codex
+git clone https://github.com/GeneralVoritzio/mort-stack
+cp -R mort-stack/skills/* ~/.claude/skills/   # Claude Code
+cp -R mort-stack/skills/* ~/.codex/skills/    # Codex
 ```
 
 ## Requirements
