@@ -71,8 +71,9 @@ cp -R mortstack/skills/* ~/.codex/skills/    # Codex
 
 ## Requirements
 
-- `replicate-ui`: Node 20+ and Playwright (`npx playwright install chromium`) for
-  `capture.mjs` and `measure.mjs`.
+- `replicate-ui`: Node 20+ and Playwright for `capture.mjs` and `measure.mjs`.
+  Install it in the project you run them from:
+  `npm i -D playwright && npx playwright install chromium`.
 - `run-round`: a harness with subagents. Claude Code's Workflow tool is the best
   fit, and any subagent tool will work.
 - `run-round`'s local CI step: `act` or Docker if you want to run GitHub Actions
